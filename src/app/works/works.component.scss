@@ -1,4 +1,9 @@
-* {
+// Avoid global transitions: they can cause jank and unexpected animation bugs.
+.two-section a,
+.two-section .grid-item-wrapper,
+.two-section .wrapper,
+.two-section .data,
+.two-section svg {
   transition: 0.5s all ease;
 }
 .two-section {

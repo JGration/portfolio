@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Animations } from '../animations';
 import anime from 'animejs';
 
@@ -8,18 +8,21 @@ import anime from 'animejs';
   styleUrls: ['./home.component.scss'],
   animations: Animations.animate,
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   state = 'inactive';
-  el: any;
+  private fadeInTimeoutId: number | undefined;
+  private removeCursorTimeoutId: number | undefined;
+  private blinkAnimation: anime.AnimeInstance | undefined;
+  private timelineAnimation: anime.AnimeInstance | undefined;
 
-  constructor() {}
+  constructor(private host: ElementRef<HTMLElement>) {}
 
   ngOnInit(): void {
     this.triggerFadeInAnimation();
   }
 
   private triggerFadeInAnimation(): void {
-    setTimeout(() => {
+    this.fadeInTimeoutId = window.setTimeout(() => {
       this.state = 'active';
     }, 4000);
   }
@@ -32,9 +35,10 @@ export class HomeComponent implements AfterViewInit {
   }
 
   private focusNextElement(): void {
-    const focusableElements = this.el.nativeElement.querySelectorAll(
+    const focusableElements = this.host.nativeElement.querySelectorAll(
       'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
     );
+    if (!focusableElements.length) return;
     const firstElement = focusableElements[0] as HTMLElement;
     const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
 
@@ -52,6 +56,7 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     const element = document.querySelector<HTMLElement>('.text-animation');
+    if (!element) return;
     var lettersHtml =
       element?.textContent?.replace(/\S/g, '<span class="letter">$&</span>') ||
       '';
@@ -59,23 +64,22 @@ export class HomeComponent implements AfterViewInit {
       '<span class="letter">D</span>',
       '<span class="letter">&nbsp</span><span class="letter">D</span>'
     );
-    element!.innerHTML = `<div class="letters">${lettersHtml}</div><span class="cursor"></span>`;
-    element!.style.display = 'block';
+    element.innerHTML = `<div class="letters">${lettersHtml}</div><span class="cursor"></span>`;
+    element.style.display = 'block';
 
-    const letters = Array.from(element!.querySelectorAll('.letter'));
+    const letters = Array.from(element.querySelectorAll('.letter'));
     const TYPE_AFTER_MS = 1000;
     const JUMP_AFTER_MS = 100;
 
-    const blink = anime({
+    this.blinkAnimation = anime({
       targets: '.text-animation .cursor',
       loop: true,
       duration: 750,
       opacity: [{ value: [1, 1] }, { value: [0, 0] }],
     });
 
-    Promise.resolve(
-      anime
-        .timeline({ loop: false })
+    this.timelineAnimation = anime
+      .timeline({ loop: false })
         .add(
           {
             targets: '.text-animation .cursor',
@@ -96,19 +100,27 @@ export class HomeComponent implements AfterViewInit {
             duration: 1,
             delay: anime.stagger(JUMP_AFTER_MS),
             changeBegin: () => {
-              blink.pause();
+              this.blinkAnimation?.pause();
             },
             changeComplete: () => {
-              blink.restart();
+              this.blinkAnimation?.restart();
             },
           },
           TYPE_AFTER_MS
-        )
-    ).then(function resolve() {
-      setTimeout(function timeout() {
-        var cursor = document.querySelector<HTMLElement>('.cursor');
+        );
+
+    this.timelineAnimation.finished.then(() => {
+      this.removeCursorTimeoutId = window.setTimeout(() => {
+        const cursor = document.querySelector<HTMLElement>('.cursor');
         cursor?.parentNode?.removeChild(cursor);
       }, 4000);
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.fadeInTimeoutId != null) window.clearTimeout(this.fadeInTimeoutId);
+    if (this.removeCursorTimeoutId != null) window.clearTimeout(this.removeCursorTimeoutId);
+    this.timelineAnimation?.pause();
+    this.blinkAnimation?.pause();
   }
 }

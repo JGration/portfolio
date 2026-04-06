@@ -9,6 +9,7 @@ import { Animations } from '../animations';
 })
 export class FooterComponent implements OnInit {
   state = 'inactive';
+  year = new Date().getFullYear();
 
   constructor() { }
 

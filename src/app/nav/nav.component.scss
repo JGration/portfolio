@@ -32,7 +32,7 @@
   top: 25%;
   right: 0;
   font-size: var(--f-md);
-  font-family: "poppins";
+  font-family: var(--text-font-family);
   @media (max-width: 1023px) {
     width: 77%;
     top: 30%;

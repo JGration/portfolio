@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Animations } from '../animations'
 import anime from 'animejs'
 
@@ -8,17 +8,20 @@ import anime from 'animejs'
   styleUrls: ['./about.component.scss'],
   animations: Animations.animate
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
   state = 'inactive'
   hexagon = 'inactive'
   first = 'inactive'
   second = 'inactive'
   third = 'inactive'
 
+  private spinAnimation: anime.AnimeInstance | undefined
+  private timeouts: number[] = []
+
   constructor () {}
 
   ngOnInit (): void {
-    anime({
+    this.spinAnimation = anime({
       targets: '.spin',
       rotate: 360,
       easing: 'linear',
@@ -26,20 +29,26 @@ export class AboutComponent implements OnInit {
       duration: 20000,
       direction: 'reverse'
     })
-    setTimeout(() => {
+    this.timeouts.push(window.setTimeout(() => {
       this.state = 'active'
-    }, 1500)
-    setTimeout(() => {
+    }, 1500))
+    this.timeouts.push(window.setTimeout(() => {
       this.hexagon = 'active'
-    }, 2500)
-    setTimeout(() => {
+    }, 2500))
+    this.timeouts.push(window.setTimeout(() => {
       this.first = 'active'
-    }, 3000)
-    setTimeout(() => {
+    }, 3000))
+    this.timeouts.push(window.setTimeout(() => {
       this.second = 'active'
-    }, 3500)
-    setTimeout(() => {
+    }, 3500))
+    this.timeouts.push(window.setTimeout(() => {
       this.third = 'active'
-    }, 4000)
+    }, 4000))
+  }
+
+  ngOnDestroy (): void {
+    for (const id of this.timeouts) window.clearTimeout(id)
+    this.timeouts = []
+    this.spinAnimation?.pause()
   }
 }
