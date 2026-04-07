@@ -57,13 +57,23 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     const element = document.querySelector<HTMLElement>('.text-animation');
     if (!element) return;
-    var lettersHtml =
-      element?.textContent?.replace(/\S/g, '<span class="letter">$&</span>') ||
-      '';
-    lettersHtml = lettersHtml.replace(
-      '<span class="letter">D</span>',
-      '<span class="letter">&nbsp</span><span class="letter">D</span>'
-    );
+
+    const text = element.textContent || '';
+    const escapeHtml = (value: string) =>
+      value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const lettersHtml = Array.from(text)
+      .map((ch) =>
+        ch === ' '
+          ? '<span class="letter">&nbsp;</span>'
+          : `<span class="letter">${escapeHtml(ch)}</span>`
+      )
+      .join('');
     element.innerHTML = `<div class="letters">${lettersHtml}</div><span class="cursor"></span>`;
     element.style.display = 'block';
 
