@@ -1,204 +1,148 @@
-<div class="container works">
-  <div class="two-section">
-    <div class="works__projects">
+<div class="works container">
+  <div class="works__grid">
+    <div class="works__left">
       <div class="headings">
-        <h1 class="medium-heading">Works</h1>
+        <h2 class="medium-heading">Works</h2>
       </div>
+
       <div class="description">
         <p>
           A curated selection of work—ranging from personal projects to production sites built with global teams.
           Below are a few public repositories, plus examples of client-facing work.
         </p>
-        <br />
+      </div>
 
-        <div class="grid-row">
-          <div class="grid-item">
-            <a
-              target="_blank"
-              href="https://github.com/JGration/Hero-Digital-FED-Test"
-              rel="noopener noreferrer"
-            >
-              <div class="grid-item-wrapper">
-                <div class="grid-item__title">Angular Complete Form</div>
-                <div class="grid-item__description">
-                  <span
-                    >Angular take-home project featuring validation, a mocked REST API, and accessibility best practices.</span
-                  >
-                </div>
-                <div class="grid-item__details code">
-                  <span>Hero-Digital-FED-Test</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="grid-item">
-            <a
-              target="_blank"
-              href="https://github.com/JGration/Marvel-Characters-List"
-              rel="noopener noreferrer"
-            >
-              <div class="grid-item-wrapper">
-                <div class="grid-item__title">Marvel Characters App</div>
-                <div class="grid-item__description">
-                  <span
-                    >A React application for browsing Marvel characters using the Marvel API.</span
-                  >
-                </div>
-                <div class="grid-item__details code">
-                  <span>Marvel-Characters-List</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="grid-item">
-            <a
-              target="_blank"
-              href="https://github.com/JGration/PlaneMerger0.19-DEMO"
-              rel="noopener noreferrer"
-            >
-              <div class="grid-item-wrapper">
-                <div class="grid-item__title">PlaneMerger0.19-DEMO</div>
-                <div class="grid-item__description">
-                  <span
-                    >A small Castlevania / Dark Souls-inspired game demo built in Unity.</span
-                  >
-                </div>
-                <div class="grid-item__details code">
-                  <span>PlaneMerger0.19-DEMO</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="grid-item">
-            <a
-              target="_blank"
-              href="https://github.com/JGration/CT-skill-test-Site"
-              rel="noopener noreferrer"
-            >
-              <div class="grid-item-wrapper">
-                <div class="grid-item__title">Los Angeles Mountain Mockup</div>
-                <div class="grid-item__description">
-                  <span
-                    >A responsive layout exercise built with Angular CLI 10.</span
-                  >
-                </div>
-                <div class="grid-item__details code">
-                  <span>CT-skill-test-Site</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-        
-        <!-- <div class="code bottom-right">
-          This site was made from scratch using Angular 14!
-        </div> -->
+      <div class="projects">
+        <a
+          class="project surface"
+          target="_blank"
+          href="https://github.com/JGration/Hero-Digital-FED-Test"
+          rel="noopener noreferrer"
+        >
+          <div class="project__title">Angular Complete Form</div>
+          <div class="project__desc">Angular take-home project featuring validation, a mocked REST API, and accessibility best practices.</div>
+          <div class="project__meta code">Hero-Digital-FED-Test</div>
+        </a>
+
+        <a
+          class="project surface"
+          target="_blank"
+          href="https://github.com/JGration/Marvel-Characters-List"
+          rel="noopener noreferrer"
+        >
+          <div class="project__title">Marvel Characters App</div>
+          <div class="project__desc">A React application for browsing Marvel characters using the Marvel API.</div>
+          <div class="project__meta code">Marvel-Characters-List</div>
+        </a>
+
+        <a
+          class="project surface"
+          target="_blank"
+          href="https://github.com/JGration/PlaneMerger0.19-DEMO"
+          rel="noopener noreferrer"
+        >
+          <div class="project__title">PlaneMerger0.19-DEMO</div>
+          <div class="project__desc">A small Castlevania / Dark Souls-inspired game demo built in Unity.</div>
+          <div class="project__meta code">PlaneMerger0.19-DEMO</div>
+        </a>
+
+        <a
+          class="project surface"
+          target="_blank"
+          href="https://github.com/JGration/CT-skill-test-Site"
+          rel="noopener noreferrer"
+        >
+          <div class="project__title">Los Angeles Mountain Mockup</div>
+          <div class="project__desc">A responsive layout exercise built with Angular CLI 10.</div>
+          <div class="project__meta code">CT-skill-test-Site</div>
+        </a>
       </div>
     </div>
-    <div class="works__experience" [@fadeState]="state">
-      <div class="cards">
-        <div class="row">
-          <div class="work card">
-            <div class="wrapper barings">
-              <div class="data">
-                <div class="content">
-                  <span class="skill">Javascript</span>
-                  <span class="skill">HTML</span>
-                  <span class="skill">SCSS</span>
-                  <a target="_blank" rel="noopener noreferrer" href="https://barings.com" class="button"
-                    >Visit Page</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="work card">
-            <div class="wrapper rwjf">
-              <div class="data">
-                <div class="content">
-                  <span class="skill">React</span>
-                  <span class="skill">AEM</span>
-                  <span class="skill">Typescript</span>
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.rwjf.org" class="button"
-                    >Visit Page</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="work card">
-            <div class="wrapper sprouts">
-              <div class="data">
-                <div class="content">
-                  <span class="skill">Wordpress</span>
-                  <span class="skill">PHP</span>
-                  <span class="skill">Plugins</span>
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.sprouts.com" class="button"
-                    >Visit Page</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="work card">
-            <div class="wrapper ruse">
-              <div class="data">
-                <div class="content">
-                  <span class="skill">Angular</span>
-                  <span class="skill">Typescript</span>
-                  <span class="skill">SCSS</span>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.rushtruckcenters.com"
-                    class="button"
-                    >Visit Page</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <div class="works__right" [@fadeState]="state">
       <div class="headings">
-        <h1 class="small-heading">Experience</h1>
+        <h3 class="small-heading">Experience</h3>
       </div>
-      <div class="description">
-        <table>
-          <tbody>
-          <tr>
-            <td>Halliburton</td>
-            <td>Software Engineer</td>
-            <td>2023 - Current</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Hero Digital</td>
-            <td>Senior Front-end Engineer</td>
-            <td>2021 – 2023</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Herbclin/Lipolabs</td>
-            <td>Front-end Developer</td>
-            <td>2019 – 2021</td>
-          </tr>
-          <tr>
-            <td>Freelance and Personal Projects</td>
-            <td>Front-end Developer</td>
-            <td>2018 – 2019</td>
-          </tr>
-          <tr>
-            <td>Digital Agency DuploV</td>
-            <td>Graphic Designer</td>
-            <td>2015 – 2015</td>
-          </tr>
-        </tbody>
-        </table>
-      </div>
-      <br>
-      <div class="code bottom-right" style="text-align: right;" [@fadeState]="state">
-        More details are available on my résumé.
+
+      <div class="experience surface">
+        <div class="experience__cards">
+          <a class="xp-card" target="_blank" rel="noopener noreferrer" href="https://barings.com">
+            <div class="xp-card__bg barings"></div>
+            <div class="xp-card__content">
+              <div class="xp-card__title">Barings</div>
+              <div class="xp-card__tags">
+                <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Performance</span>
+              </div>
+              <div class="xp-card__cta">Visit →</div>
+            </div>
+          </a>
+
+          <a class="xp-card" target="_blank" rel="noopener noreferrer" href="https://www.rwjf.org">
+            <div class="xp-card__bg rwjf"></div>
+            <div class="xp-card__content">
+              <div class="xp-card__title">RWJF</div>
+              <div class="xp-card__tags">
+                <span class="tag">React</span><span class="tag">AEM</span><span class="tag">Accessibility</span>
+              </div>
+              <div class="xp-card__cta">Visit →</div>
+            </div>
+          </a>
+
+          <a class="xp-card" target="_blank" rel="noopener noreferrer" href="https://www.sprouts.com">
+            <div class="xp-card__bg sprouts"></div>
+            <div class="xp-card__content">
+              <div class="xp-card__title">Sprouts</div>
+              <div class="xp-card__tags">
+                <span class="tag">WordPress</span><span class="tag">Drupal</span><span class="tag">SEO</span>
+              </div>
+              <div class="xp-card__cta">Visit →</div>
+            </div>
+          </a>
+
+          <a class="xp-card" target="_blank" rel="noopener noreferrer" href="https://www.rushtruckcenters.com">
+            <div class="xp-card__bg ruse"></div>
+            <div class="xp-card__content">
+              <div class="xp-card__title">Rush Truck Centers</div>
+              <div class="xp-card__tags">
+                <span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">CI/CD</span>
+              </div>
+              <div class="xp-card__cta">Visit →</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="experience__table">
+          <table>
+            <tbody>
+              <tr>
+                <td>Halliburton</td>
+                <td>Software Engineer</td>
+                <td>2023 - Current</td>
+              </tr>
+              <tr>
+                <td>Hero Digital</td>
+                <td>Senior Front End Engineer</td>
+                <td>2021 – 2023</td>
+              </tr>
+              <tr>
+                <td>Herb Clin</td>
+                <td>Front End Developer</td>
+                <td>2019 – 2021</td>
+              </tr>
+              <tr>
+                <td>Freelance and Personal Projects</td>
+                <td>Front-end Developer</td>
+                <td>2018 – 2019</td>
+              </tr>
+              <tr>
+                <td>Digital Agency DuploV</td>
+                <td>Graphic Designer</td>
+                <td>2015 – 2015</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="code" style="text-align: right; margin-top: 12px;">More details are available on my resume.</div>
+        </div>
       </div>
     </div>
   </div>

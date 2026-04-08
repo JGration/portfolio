@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavComponent } from './nav.component';
 
@@ -8,7 +9,8 @@ describe('NavComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavComponent ]
+      imports: [NoopAnimationsModule],
+      declarations: [NavComponent],
     })
     .compileComponents();
 

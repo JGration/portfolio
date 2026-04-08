@@ -1,17 +1,41 @@
-<div class="container">
+<div class="app-shell">
   <app-nav></app-nav>
-  <section class="start">
-    <app-home [@fadeState]="state"></app-home>
-  </section>
-  <div id="about"></div>
-  <section class="middle-1" scroll-check [@scrollSlide]="scrollSlide" (scrollState)="scrollSlide = $event">
-    <app-about *ngIf="scrollSlide === 'show'"></app-about>
-  </section>
-  <section class="middle-2" scroll-check [@scroll]="scroll" (scrollState)="scroll = $event"  id="works">
-    <app-works *ngIf="scroll === 'show'"></app-works>
-  </section>
-  <section class="end" scroll-check [@scroll]="scroll2" (scrollState)="scroll2 = $event"  id="contact">
-    <app-contact *ngIf="scroll2 === 'show'" [@fadeState]="state"></app-contact>
-  </section>
+
+  <main class="app-main">
+    <section class="start">
+      <app-home [@fadeState]="state"></app-home>
+    </section>
+
+    <section
+      class="middle-1"
+      id="about"
+      scroll-check
+      [@scrollSlide]="scrollSlide"
+      (scrollState)="scrollSlide = $event"
+    >
+      <app-about *ngIf="scrollSlide === 'show'"></app-about>
+    </section>
+
+    <section
+      class="middle-2"
+      id="works"
+      scroll-check
+      [@scroll]="scroll"
+      (scrollState)="scroll = $event"
+    >
+      <app-works *ngIf="scroll === 'show'"></app-works>
+    </section>
+
+    <section
+      class="end"
+      id="contact"
+      scroll-check
+      [@scroll]="scroll2"
+      (scrollState)="scroll2 = $event"
+    >
+      <app-contact *ngIf="scroll2 === 'show'" [@fadeState]="state"></app-contact>
+    </section>
+  </main>
+
   <app-footer></app-footer>
 </div>

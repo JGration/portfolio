@@ -1,5 +1,5 @@
-import { Component, OnInit, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
-var mobile = require('is-mobile');
+import { Component, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
+import isMobile from 'is-mobile';
 
 function _window() : any {
   // return the global native browser window object
@@ -20,7 +20,7 @@ export class ScrollComponent{
     const componentPosition = this.el.nativeElement.offsetTop
     const scrollPosition = window.scrollY
 
-    if (!mobile()) {
+    if (!isMobile()) {
       if (scrollPosition >= componentPosition - 600) {
         this.scrollState.emit('show')
       }

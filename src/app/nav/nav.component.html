@@ -1,6 +1,6 @@
-<div class="nav" [@fadeState]="state">
-  <div class="nav-logo">
-    <a href="#">
+<header class="nav" [@fadeState]="state">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#" aria-label="Home">
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
@@ -9,11 +9,7 @@
         viewBox="0 0 256.000000 256.000000"
         preserveAspectRatio="xMidYMid meet"
       >
-        <g
-          transform="translate(0.000000,256.000000) scale(0.100000,-0.100000)"
-          fill="#000000"
-          stroke="none"
-        >
+        <g transform="translate(0.000000,256.000000) scale(0.100000,-0.100000)" stroke="none">
           <path
             d="M1620 2427 c-33 -16 -55 -57 -47 -88 4 -13 173 -192 381 -401 346
      -350 377 -378 409 -378 46 0 77 34 77 86 0 38 -9 48 -368 406 -202 202 -369
@@ -44,19 +40,12 @@
         </g>
       </svg>
     </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="#about">About</a>
+      <a class="nav__link" href="#works">Works</a>
+      <a class="nav__link nav__link--cta" href="#contact">Contact</a>
+    </nav>
   </div>
-  <div class="nav-links">
-    <ul class="nav-list">
-      <li>
-        <a href="#about">About</a>
-      </li>
-      <li>
-        <a href="#works">Works</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-    </ul>
-  </div>
-</div>
+</header>
 

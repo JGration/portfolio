@@ -1,23 +1,62 @@
-<div class="container">
-  <p>Hi, I’m</p>
-  <div class="headings">
-    <h1 class="big-heading">Jordan Gonçalves</h1>
-    <div class="text-animation">
-      <h1 class="medium-heading white">Software Engineer</h1>
+<div class="hero container">
+  <p class="hero__kicker">Hi, I’m</p>
+
+  <div class="hero__title">
+    <h1 class="big-heading hero__name">Jordan Gonçalves</h1>
+    <div class="text-animation hero__role">
+      <h2 class="medium-heading">Software Engineer</h2>
     </div>
   </div>
-  <div class="description" [@fadeState]="state">
+
+  <div class="hero__copy" [@fadeState]="state">
     <p>
-      I’m a Software Engineer (front-end heavy) based in São Paulo, Brazil, working with distributed teams.
-      I build accessible, performant interfaces and enjoy turning ideas into polished product experiences.
+      Versatile Software Engineer (front-end heavy) with 5+ years building scalable web apps.
+      I ship accessible, performance-focused UIs in Angular and React, and I’m comfortable going full-stack when needed.
     </p>
-    <br />
-    <div class="code bottom-right" [@fadeState]="state">
-      Built with Angular 14.
+    <div class="hero__meta code" [@fadeState]="state">Angular · React · TypeScript · Java · Python · SQLite</div>
+  </div>
+
+  <div class="hero__cta" [@fadeState]="state">
+    <app-button
+      href="https://drive.google.com/file/d/11Zpwwzkj_ImKuaZI90h7WQlN5ZppIy_8/view?usp=sharing"
+      text="Download resume"
+    ></app-button>
+    <a class="hero__secondary" href="#works">View work</a>
+  </div>
+
+  <div class="highlights" [@fadeState]="state" aria-label="Highlights">
+    <div class="highlights__title code">Highlights</div>
+    <div class="highlights__grid">
+      <div class="highlight surface">
+        <div class="highlight__top">
+          <div class="highlight__metric">400+</div>
+          <div class="highlight__label">daily users</div>
+        </div>
+        <div class="highlight__body">
+          Built an Angular 16 app to visualize pre-salt oil rig data with 2D/3D layers.
+        </div>
+      </div>
+
+      <div class="highlight surface">
+        <div class="highlight__top">
+          <div class="highlight__metric">5TB+</div>
+          <div class="highlight__label">per week</div>
+        </div>
+        <div class="highlight__body">
+          Architected Java/Python services to process continuous data flows at enterprise scale.
+        </div>
+      </div>
+
+      <div class="highlight surface">
+        <div class="highlight__top">
+          <div class="highlight__metric">-40%</div>
+          <div class="highlight__label">query time</div>
+        </div>
+        <div class="highlight__body">
+          Designed SQLite schemas and tuned queries across millions of telemetry data points.
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="center" style="padding-top: 50px; margin-bottom: -50px" [@fadeState]="state">
-  <app-button href="https://drive.google.com/file/d/11Zpwwzkj_ImKuaZI90h7WQlN5ZppIy_8/view?usp=sharing" text="Download resumé"></app-button>
 </div>
 
