@@ -1,4 +1,4 @@
-.btn {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,29 +13,29 @@
   box-shadow: var(--shadow-sm);
   user-select: none;
   white-space: nowrap;
-}
 
-.btn__label {
-  font-size: var(--f-md);
-}
+  &__label {
+    font-size: var(--f-md);
+  }
 
-.btn__icon {
-  opacity: 0.9;
-  transform: translateX(0);
-  transition: transform 200ms ease, opacity 200ms ease;
-}
+  &__icon {
+    opacity: 0.9;
+    transform: translateX(0);
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
 
-.btn:hover .btn__icon {
-  transform: translateX(2px);
-  opacity: 1;
-}
+  &:hover &__icon {
+    transform: translateX(2px);
+    opacity: 1;
+  }
 
-.btn--primary {
-  background: linear-gradient(180deg, rgba(124, 92, 255, 0.95), rgba(124, 92, 255, 0.62));
-  border-color: color-mix(in srgb, var(--accent) 55%, var(--border) 45%);
-}
+  &--primary {
+    background: linear-gradient(180deg, rgba(124, 92, 255, 0.95), rgba(124, 92, 255, 0.62));
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border) 45%);
 
-.btn--primary:hover {
-  filter: saturate(1.05) brightness(1.02);
-  box-shadow: var(--shadow-md);
+    &:hover {
+      filter: saturate(1.05) brightness(1.02);
+      box-shadow: var(--shadow-md);
+    }
+  }
 }

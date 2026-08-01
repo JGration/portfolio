@@ -1,17 +1,46 @@
-/* Shell layout */
 .app-shell {
   min-height: 100vh;
-}
 
-.app-main {
-  display: block;
-}
+  &__main {
+    display: block;
+  }
 
-/* Give sections consistent rhythm across backgrounds */
-.start {
-  position: relative;
-}
+  &__section {
+    position: relative;
 
-.middle-2 {
-  position: relative;
+    &--hero {
+      padding-top: calc(var(--section-y) * 1.15);
+    }
+
+    &--about {
+      text-align: right;
+      overflow: hidden;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bg) 85%, var(--accent) 15%),
+        var(--bg)
+      );
+      max-width: none;
+
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+
+        p,
+        h1 {
+          color: var(--text);
+        }
+      }
+    }
+
+    &--contact {
+      padding-bottom: 300px;
+
+      @media (max-width: 768px) {
+        padding: 150px 0;
+      }
+    }
+  }
 }

@@ -1,0 +1,36 @@
+<div class="demo container">
+  <div class="demo__header">
+    <h2 class="medium-heading">Live Demo</h2>
+  </div>
+
+  <div class="demo__description">
+    <p>
+      Small interactive tools—built as native Angular components, not screenshots or embedded third-party apps.
+    </p>
+  </div>
+
+  <div class="demo__tabs" role="tablist" aria-label="Choose a live demo">
+    <button
+      type="button"
+      role="tab"
+      *ngFor="let t of tabs"
+      class="demo__tab"
+      [class.demo__tab--active]="activeTab === t.key"
+      [attr.aria-selected]="activeTab === t.key"
+      [attr.id]="'tab-' + t.key"
+      [attr.aria-controls]="'panel-' + t.key"
+      (click)="activeTab = t.key"
+    >
+      {{ t.label }}
+    </button>
+  </div>
+
+  <div class="demo__panels">
+    <div role="tabpanel" id="panel-telemetry" aria-labelledby="tab-telemetry" *ngIf="activeTab === 'telemetry'">
+      <app-demo-telemetry></app-demo-telemetry>
+    </div>
+    <div role="tabpanel" id="panel-game" aria-labelledby="tab-game" *ngIf="activeTab === 'game'">
+      <app-demo-game></app-demo-game>
+    </div>
+  </div>
+</div>

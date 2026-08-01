@@ -1,0 +1,182 @@
+<div class="demo-telemetry" [@fadeState]="state">
+  <p class="demo-telemetry__description">
+    A simplified stand-in for the real-time sensor dashboards I've shipped in production—synthetic data, native
+    Angular component, no third-party embed.
+  </p>
+
+  <div class="demo-telemetry__panel surface">
+    <div class="demo-telemetry__toolbar">
+      <div class="demo-telemetry__toolbar-group">
+        <button
+          type="button"
+          class="demo-telemetry__play-toggle"
+          [class.demo-telemetry__play-toggle--live]="playing"
+          [attr.aria-pressed]="playing"
+          (click)="toggle()"
+        >
+          <span class="demo-telemetry__play-dot" aria-hidden="true"></span>
+          {{ playing ? 'Live' : 'Paused' }}
+        </button>
+
+        <div class="demo-telemetry__legend" role="group" aria-label="Toggle sensors">
+          <button
+            type="button"
+            class="demo-telemetry__legend-item"
+            *ngFor="let s of seriesList"
+            [class.demo-telemetry__legend-item--off]="!seriesVisible[s.key]"
+            [attr.aria-pressed]="seriesVisible[s.key]"
+            (click)="toggleSeries(s.key)"
+          >
+            <span class="demo-telemetry__legend-swatch" [style.background]="s.color"></span>
+            {{ s.label }}
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-telemetry__toolbar-group demo-telemetry__toolbar-group--right">
+        <div class="demo-telemetry__range" role="group" aria-label="Time window">
+          <button
+            type="button"
+            *ngFor="let size of windowOptions"
+            class="demo-telemetry__range-btn"
+            [class.demo-telemetry__range-btn--active]="windowSize === size"
+            (click)="setWindow(size)"
+          >
+            {{ size }}s
+          </button>
+        </div>
+
+        <button
+          type="button"
+          class="demo-telemetry__view-toggle"
+          (click)="viewMode = viewMode === 'chart' ? 'table' : 'chart'"
+        >
+          {{ viewMode === 'chart' ? 'View as table' : 'View as chart' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="demo-telemetry__chart" *ngIf="viewMode === 'chart'">
+      <svg
+        #svgRef
+        class="demo-telemetry__svg"
+        [attr.viewBox]="'0 0 ' + viewBoxWidth + ' ' + viewBoxHeight"
+        preserveAspectRatio="none"
+        role="img"
+        aria-label="Live line chart of simulated wellhead pressure for two sensors"
+        (mousemove)="onPointerMove($event)"
+        (mouseleave)="onPointerLeave()"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onPointerLeave()"
+      >
+        <g class="demo-telemetry__grid">
+          <line
+            *ngFor="let v of gridValues"
+            class="demo-telemetry__grid-line"
+            x1="0"
+            [attr.x2]="viewBoxWidth"
+            [attr.y1]="yForValue(v)"
+            [attr.y2]="yForValue(v)"
+          ></line>
+          <text *ngFor="let v of gridValues" class="demo-telemetry__grid-label" x="4" [attr.y]="yForValue(v) - 4">
+            {{ v | number: '1.0-0' }} psi
+          </text>
+        </g>
+
+        <path *ngIf="seriesVisible.a" class="demo-telemetry__line demo-telemetry__line--a" [attr.d]="pathFor('a')"></path>
+        <path *ngIf="seriesVisible.b" class="demo-telemetry__line demo-telemetry__line--b" [attr.d]="pathFor('b')"></path>
+
+        <circle
+          *ngIf="seriesVisible.a && data.length"
+          class="demo-telemetry__live-dot demo-telemetry__live-dot--a"
+          [attr.cx]="xForIndex(data.length - 1)"
+          [attr.cy]="yForValue(data[data.length - 1].a)"
+          r="4"
+        ></circle>
+        <circle
+          *ngIf="seriesVisible.b && data.length"
+          class="demo-telemetry__live-dot demo-telemetry__live-dot--b"
+          [attr.cx]="xForIndex(data.length - 1)"
+          [attr.cy]="yForValue(data[data.length - 1].b)"
+          r="4"
+        ></circle>
+
+        <ng-container *ngIf="hover as h">
+          <line
+            class="demo-telemetry__crosshair"
+            [attr.x1]="h.x"
+            [attr.x2]="h.x"
+            y1="16"
+            [attr.y2]="viewBoxHeight - 28"
+          ></line>
+          <circle
+            *ngIf="seriesVisible.a"
+            class="demo-telemetry__marker demo-telemetry__marker--a"
+            [attr.cx]="h.x"
+            [attr.cy]="yForValue(h.point.a)"
+            r="5"
+          ></circle>
+          <circle
+            *ngIf="seriesVisible.b"
+            class="demo-telemetry__marker demo-telemetry__marker--b"
+            [attr.cx]="h.x"
+            [attr.cy]="yForValue(h.point.b)"
+            r="5"
+          ></circle>
+        </ng-container>
+      </svg>
+
+      <div class="demo-telemetry__tooltip" *ngIf="hover as h" [style.left.%]="tooltipLeftPercent">
+        <div class="demo-telemetry__tooltip-time code">t-{{ data.length - 1 - h.index }}s</div>
+        <div class="demo-telemetry__tooltip-row" *ngIf="seriesVisible.a">
+          <span class="demo-telemetry__tooltip-swatch" [style.background]="seriesList[0].color"></span>
+          Sensor A: {{ h.point.a | number: '1.0-0' }} psi
+        </div>
+        <div class="demo-telemetry__tooltip-row" *ngIf="seriesVisible.b">
+          <span class="demo-telemetry__tooltip-swatch" [style.background]="seriesList[1].color"></span>
+          Sensor B: {{ h.point.b | number: '1.0-0' }} psi
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-telemetry__table-wrap" *ngIf="viewMode === 'table'">
+      <table class="demo-telemetry__table">
+        <caption class="demo-telemetry__table-caption">Most recent simulated sensor readings</caption>
+        <thead>
+          <tr>
+            <th scope="col">Reading</th>
+            <th scope="col">Sensor A (psi)</th>
+            <th scope="col">Sensor B (psi)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableRows">
+            <td>{{ row.label }}</td>
+            <td>{{ row.a | number: '1.0-0' }}</td>
+            <td>{{ row.b | number: '1.0-0' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="demo-telemetry__stats" aria-label="Current readings">
+      <div class="demo-telemetry__stat">
+        <div class="demo-telemetry__stat-label code">Sensor A now</div>
+        <div class="demo-telemetry__stat-value">{{ currentA | number: '1.0-0' }} psi</div>
+      </div>
+      <div class="demo-telemetry__stat">
+        <div class="demo-telemetry__stat-label code">Sensor B now</div>
+        <div class="demo-telemetry__stat-value">{{ currentB | number: '1.0-0' }} psi</div>
+      </div>
+      <div class="demo-telemetry__stat">
+        <div class="demo-telemetry__stat-label code">Sampling</div>
+        <div class="demo-telemetry__stat-value">~900ms</div>
+      </div>
+    </div>
+
+    <div class="demo-telemetry__note code">
+      Simulated data, generated client-side—not a live feed. Mirrors the pattern of the telemetry dashboards I've
+      built for continuous sensor data at scale.
+    </div>
+  </div>
+</div>

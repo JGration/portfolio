@@ -3,7 +3,7 @@
 
   <div class="hero__title">
     <h1 class="big-heading hero__name">Jordan Gonçalves</h1>
-    <div class="text-animation hero__role">
+    <div class="hero__role hero__role-animation">
       <h2 class="medium-heading">Software Engineer</h2>
     </div>
   </div>
@@ -24,35 +24,35 @@
     <a class="hero__secondary" href="#works">View work</a>
   </div>
 
-  <div class="highlights" [@fadeState]="state" aria-label="Highlights">
-    <div class="highlights__title code">Highlights</div>
-    <div class="highlights__grid">
-      <div class="highlight surface">
-        <div class="highlight__top">
-          <div class="highlight__metric">400+</div>
-          <div class="highlight__label">daily users</div>
+  <div class="hero__highlights" [@fadeState]="state" aria-label="Highlights">
+    <div class="hero__highlights-title code">Highlights</div>
+    <div class="hero__highlights-grid">
+      <div class="hero__highlight surface">
+        <div class="hero__highlight-top">
+          <div class="hero__highlight-metric">400+</div>
+          <div class="hero__highlight-label">daily users</div>
         </div>
-        <div class="highlight__body">
+        <div class="hero__highlight-body">
           Built an Angular 16 app to visualize pre-salt oil rig data with 2D/3D layers.
         </div>
       </div>
 
-      <div class="highlight surface">
-        <div class="highlight__top">
-          <div class="highlight__metric">5TB+</div>
-          <div class="highlight__label">per week</div>
+      <div class="hero__highlight surface">
+        <div class="hero__highlight-top">
+          <div class="hero__highlight-metric">5TB+</div>
+          <div class="hero__highlight-label">per week</div>
         </div>
-        <div class="highlight__body">
+        <div class="hero__highlight-body">
           Architected Java/Python services to process continuous data flows at enterprise scale.
         </div>
       </div>
 
-      <div class="highlight surface">
-        <div class="highlight__top">
-          <div class="highlight__metric">-40%</div>
-          <div class="highlight__label">query time</div>
+      <div class="hero__highlight surface">
+        <div class="hero__highlight-top">
+          <div class="hero__highlight-metric">-40%</div>
+          <div class="hero__highlight-label">query time</div>
         </div>
-        <div class="highlight__body">
+        <div class="hero__highlight-body">
           Designed SQLite schemas and tuned queries across millions of telemetry data points.
         </div>
       </div>

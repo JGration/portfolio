@@ -1,0 +1,103 @@
+.demo-game {
+  &__description {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    max-width: 640px;
+  }
+
+  &__panel {
+    padding: 18px;
+  }
+
+  &__hud {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 14px;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__stat-value {
+    font-weight: 800;
+    font-size: var(--f-xl);
+    color: var(--text);
+  }
+
+  &__action {
+    margin-left: auto;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.08);
+    }
+  }
+
+  &__stage {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-elev-1);
+  }
+
+  &__canvas {
+    display: block;
+    width: 100%;
+    height: clamp(160px, 26vw, 220px);
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    padding: 16px;
+    background: color-mix(in srgb, var(--bg-elev-1) 55%, transparent);
+    pointer-events: none;
+  }
+
+  &__overlay-title {
+    font-weight: 800;
+    font-size: var(--f-xl);
+    color: var(--text);
+  }
+
+  &__overlay-copy {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 320px;
+  }
+
+  &__note {
+    margin-top: 12px;
+  }
+
+  @media (max-width: 520px) {
+    &__hud {
+      flex-wrap: wrap;
+    }
+
+    &__action {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}

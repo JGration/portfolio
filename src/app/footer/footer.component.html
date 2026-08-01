@@ -1,13 +1,15 @@
-<div class="icons" [@bottomSlideState]="state">
-  <ul class="social-links">
+<div class="footer footer__social container" [@bottomSlideState]="state">
+  <ul class="footer__social-list">
     <li>
       <a
+        class="footer__social-link"
         target="_blank"
         href="https://www.linkedin.com/in/jordanhfgon/"
         rel="noopener noreferrer"
         aria-label="Linkedin"
       >
         <svg
+          class="footer__social-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -21,8 +23,9 @@
     </li>
 
     <li>
-      <a target="_blank" href="https://github.com/JGration" rel="noopener noreferrer" aria-label="GitHub">
+      <a class="footer__social-link" target="_blank" href="https://github.com/JGration" rel="noopener noreferrer" aria-label="GitHub">
         <svg
+          class="footer__social-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -35,8 +38,9 @@
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://t.me/jordanhfgon" rel="noopener noreferrer" aria-label="Telegram">
+      <a class="footer__social-link" target="_blank" href="https://t.me/jordanhfgon" rel="noopener noreferrer" aria-label="Telegram">
         <svg
+          class="footer__social-icon"
           width="24px"
           height="24px"
           version="1.1"
@@ -60,11 +64,13 @@
     </li>
     <li>
       <a
+        class="footer__social-link"
         target="_blank"
         href="mailto:jordanhgoncalves@gmail.com"
         aria-label="Email"
       >
         <svg
+          class="footer__social-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -79,6 +85,6 @@
   </ul>
 </div>
 
-<div class="center">
+<div class="footer__credit container">
   <p class="code">Designed & Built by Jordan Gonçalves · {{ year }}</p>
 </div>

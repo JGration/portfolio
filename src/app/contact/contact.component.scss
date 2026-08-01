@@ -1,28 +1,30 @@
-.contact__card {
-  padding: clamp(18px, 3vw, 26px);
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .contact__card {
-    grid-template-columns: 1fr;
+.contact {
+  &__card {
+    padding: clamp(18px, 3vw, 26px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+    align-items: center;
   }
-}
 
-.contact__copy {
-  margin-top: 12px;
-  max-width: 62ch;
-}
+  &__copy {
+    margin-top: 12px;
+    max-width: 62ch;
+  }
 
-.contact__right {
-  display: grid;
-  justify-items: start;
-  gap: 10px;
-}
+  &__actions {
+    display: grid;
+    justify-items: start;
+    gap: 10px;
+  }
 
-.contact__hint {
-  color: var(--text-subtle);
+  &__hint {
+    color: var(--text-subtle);
+  }
+
+  @media (max-width: 900px) {
+    &__card {
+      grid-template-columns: 1fr;
+    }
+  }
 }

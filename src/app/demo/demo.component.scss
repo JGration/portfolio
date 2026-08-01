@@ -1,0 +1,45 @@
+.demo {
+  &__header {
+    margin: 20px 0;
+  }
+
+  &__description {
+    max-width: 60%;
+    margin-bottom: 24px;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  &__tab {
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--border-2);
+      color: var(--text);
+    }
+
+    &--active {
+      color: var(--accent-ink);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+  }
+
+  @media (max-width: 720px) {
+    &__description {
+      max-width: none;
+    }
+  }
+}

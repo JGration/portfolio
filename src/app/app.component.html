@@ -1,13 +1,13 @@
 <div class="app-shell">
   <app-nav></app-nav>
 
-  <main class="app-main">
-    <section class="start">
+  <main class="app-shell__main">
+    <section class="app-shell__section app-shell__section--hero">
       <app-home [@fadeState]="state"></app-home>
     </section>
 
     <section
-      class="middle-1"
+      class="app-shell__section app-shell__section--about"
       id="about"
       scroll-check
       [@scrollSlide]="scrollSlide"
@@ -17,7 +17,7 @@
     </section>
 
     <section
-      class="middle-2"
+      class="app-shell__section app-shell__section--works"
       id="works"
       scroll-check
       [@scroll]="scroll"
@@ -27,7 +27,17 @@
     </section>
 
     <section
-      class="end"
+      class="app-shell__section app-shell__section--demo"
+      id="demo"
+      scroll-check
+      [@scroll]="scroll3"
+      (scrollState)="scroll3 = $event"
+    >
+      <app-demo *ngIf="scroll3 === 'show'"></app-demo>
+    </section>
+
+    <section
+      class="app-shell__section app-shell__section--contact"
       id="contact"
       scroll-check
       [@scroll]="scroll2"

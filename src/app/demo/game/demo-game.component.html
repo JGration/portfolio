@@ -1,0 +1,44 @@
+<div class="demo-game" [@fadeState]="state">
+  <p class="demo-game__description">
+    A tiny endless runner built with HTML canvas and a real-time game loop—a nod to the game-dev side projects
+    mentioned in About.
+  </p>
+
+  <div class="demo-game__panel surface">
+    <div class="demo-game__hud">
+      <div class="demo-game__stat">
+        <span class="demo-game__stat-label code">Score</span>
+        <span class="demo-game__stat-value">{{ score }}</span>
+      </div>
+      <div class="demo-game__stat">
+        <span class="demo-game__stat-label code">Best</span>
+        <span class="demo-game__stat-value">{{ best }}</span>
+      </div>
+      <button type="button" class="demo-game__action" (click)="handleAction()">{{ actionLabel }}</button>
+    </div>
+
+    <div class="demo-game__stage">
+      <canvas
+        #canvasRef
+        class="demo-game__canvas"
+        role="img"
+        aria-label="Endless runner game canvas"
+        (click)="handleAction()"
+      ></canvas>
+
+      <div class="demo-game__overlay" *ngIf="gameState !== 'playing'">
+        <div class="demo-game__overlay-title">{{ gameState === 'gameover' ? 'Game over' : 'Endless Runner' }}</div>
+        <div class="demo-game__overlay-copy" *ngIf="gameState === 'gameover'">
+          Score: {{ score }} &middot; Best: {{ best }}
+        </div>
+        <div class="demo-game__overlay-copy" *ngIf="gameState === 'idle'">
+          Click Start, then click/tap the canvas or the Jump button to clear the obstacles.
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-game__note code" aria-live="polite">
+      {{ gameState === 'playing' ? 'Playing' : gameState === 'gameover' ? 'Game over — score ' + score : 'Ready' }}
+    </div>
+  </div>
+</div>

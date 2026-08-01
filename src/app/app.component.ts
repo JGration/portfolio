@@ -14,6 +14,7 @@ export class AppComponent {
   scrollSlide = 'hide'
   scroll = 'hide'
   scroll2 = 'hide'
+  scroll3 = 'hide'
 
   ngOnInit (): void {
     setTimeout(() => {
@@ -22,6 +23,7 @@ export class AppComponent {
     if (isMobile()) {
       this.scroll = 'show'
       this.scroll2 = 'show'
+      this.scroll3 = 'show'
       this.scrollSlide = 'show'
     }
   }

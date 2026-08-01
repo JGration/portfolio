@@ -6,10 +6,10 @@
         <div class="about__skills-subtitle code">Angular · React · Full-stack when needed</div>
       </div>
 
-      <div class="skills" aria-label="Skills">
-        <div class="skills__row first" [@fadeState]="first">
-          <div class="skills__item">
-            <div class="skills__item__wrap">
+      <div class="about__skills-grid" aria-label="Skills">
+        <div class="about__skills-row about__skills-row--first" [@fadeState]="first">
+          <div class="about__skills-item">
+            <div class="about__skills-item-content">
             <svg
               style="enable-background: new 0 0 512 512"
               version="1.1"
@@ -29,11 +29,11 @@
               </g>
               <g id="Layer_1" />
             </svg>
-            <div class="skills__item-name">Angular</div>
+            <div class="about__skills-item-name">Angular</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               id="Lager_1"
               style="enable-background: new 0 0 128 128"
@@ -64,11 +64,11 @@
                 </g>
               </g>
             </svg>
-            <div class="skills__item-name">JavaScript</div>
+            <div class="about__skills-item-name">JavaScript</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               height="100%"
               style="
@@ -99,14 +99,14 @@
                 />
               </g>
             </svg>
-            <div class="skills__item-name">React</div>
+            <div class="about__skills-item-name">React</div>
           </div>
         </div>
         </div>
 
-        <div class="skills__row second" [@fadeState]="second">
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-row about__skills-row--second" [@fadeState]="second">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               enable-background="new 0 0 32 32"
               id="Layer_1"
@@ -138,11 +138,11 @@
               <g />
               <g />
             </svg>
-            <div class="skills__item-name">HTML</div>
+            <div class="about__skills-item-name">HTML</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               height="55px"
               style="enable-background: new 0 0 512 512"
@@ -166,11 +166,11 @@
               </g>
               <g id="Layer_1" />
             </svg>
-            <div class="skills__item-name">Sass</div>
+            <div class="about__skills-item-name">Sass</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
               <title>Git</title>
               <path
@@ -178,11 +178,11 @@
                 d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"
               />
             </svg>
-            <div class="skills__item-name">Git</div>
+            <div class="about__skills-item-name">Git</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               enable-background="new 0 0 56.693 56.693"
               height="56.693px"
@@ -200,14 +200,14 @@
                 d="M3.59,29.355c0,9.742,5.663,18.17,13.878,22.156L5.723,19.332C4.355,22.396,3.59,25.783,3.59,29.355z M44.836,28.111  c0-3.043-1.096-5.152-2.031-6.791c-1.248-2.03-2.416-3.745-2.416-5.776c0-2.264,1.711-4.369,4.135-4.369  c0.105,0,0.211,0.014,0.316,0.021C40.461,7.183,34.625,4.73,28.215,4.73c-8.605,0-16.172,4.416-20.573,11.1  c0.579,0.018,1.121,0.031,1.583,0.031c2.577,0,6.563-0.316,6.563-0.316c1.324-0.074,1.481,1.871,0.154,2.031  c0,0-1.332,0.154-2.817,0.234l8.968,26.668l5.389-16.158l-3.838-10.51c-1.326-0.08-2.582-0.234-2.582-0.234  c-1.328-0.08-1.17-2.105,0.158-2.031c0,0,4.064,0.316,6.482,0.316c2.574,0,6.566-0.316,6.566-0.316  c1.322-0.074,1.48,1.871,0.152,2.031c0,0-1.33,0.154-2.816,0.234l8.9,26.465l2.457-8.203C44.209,32.871,44.836,30.221,44.836,28.111  z M28.646,31.51l-7.389,21.469c2.205,0.648,4.535,1,6.957,1c2.865,0,5.617-0.496,8.176-1.398c-0.066-0.105-0.127-0.215-0.176-0.336  L28.646,31.51z M49.818,17.539c0.109,0.787,0.17,1.627,0.17,2.535c0,2.497-0.469,5.305-1.875,8.819l-7.52,21.742  c7.318-4.266,12.24-12.195,12.24-21.279C52.834,25.072,51.74,21.049,49.818,17.539z"
               />
             </svg>
-            <div class="skills__item-name">Wordpress</div>
+            <div class="about__skills-item-name">Wordpress</div>
           </div>
         </div>
         </div>
 
-        <div class="skills__row third" [@fadeState]="third">
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-row about__skills-row--third" [@fadeState]="third">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               style="enable-background: new 0 0 512 512"
               version="1.1"
@@ -246,11 +246,11 @@
                 />
               </g>
             </svg>
-            <div class="skills__item-name">Photoshop</div>
+            <div class="about__skills-item-name">Photoshop</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg
               style="enable-background: new 0 0 512 512"
               version="1.1"
@@ -293,11 +293,11 @@
                 />
               </g>
             </svg>
-            <div class="skills__item-name">Illustrator</div>
+            <div class="about__skills-item-name">Illustrator</div>
           </div>
         </div>
-        <div class="skills__item">
-          <div class="skills__item__wrap">
+        <div class="about__skills-item">
+          <div class="about__skills-item-content">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>React</title>
               <path
@@ -305,44 +305,44 @@
                 d="M12 21.985c-.275 0-.532-.074-.772-.202l-2.439-1.448c-.365-.203-.182-.277-.072-.314.496-.165.588-.201 1.101-.493.056-.037.129-.02.185.017l1.87 1.12c.074.036.166.036.221 0l7.319-4.237c.074-.036.11-.11.11-.202V7.768c0-.091-.036-.165-.11-.201l-7.319-4.219c-.073-.037-.165-.037-.221 0L4.552 7.566c-.073.036-.11.129-.11.201v8.457c0 .073.037.166.11.202l2 1.157c1.082.548 1.762-.095 1.762-.735V8.502c0-.11.091-.221.22-.221h.936c.108 0 .22.092.22.221v8.347c0 1.449-.788 2.294-2.164 2.294-.422 0-.752 0-1.688-.46l-1.925-1.099a1.55 1.55 0 0 1-.771-1.34V7.786c0-.55.293-1.064.771-1.339l7.316-4.237a1.637 1.637 0 0 1 1.544 0l7.317 4.237c.479.274.771.789.771 1.339v8.458c0 .549-.293 1.063-.771 1.34l-7.317 4.236c-.241.11-.516.165-.773.165zm2.256-5.816c-3.21 0-3.87-1.468-3.87-2.714 0-.11.092-.221.22-.221h.954c.11 0 .201.073.201.184.147.971.568 1.449 2.514 1.449 1.54 0 2.202-.35 2.202-1.175 0-.477-.185-.825-2.587-1.063-1.999-.2-3.246-.643-3.246-2.238 0-1.485 1.247-2.366 3.339-2.366 2.347 0 3.503.809 3.649 2.568a.297.297 0 0 1-.056.165c-.037.036-.091.073-.146.073h-.953a.212.212 0 0 1-.202-.164c-.221-1.012-.789-1.34-2.292-1.34-1.689 0-1.891.587-1.891 1.027 0 .531.237.696 2.514.99 2.256.293 3.32.715 3.32 2.294-.02 1.615-1.339 2.531-3.67 2.531z"
               />
             </svg>
-            <div class="skills__item-name">Node.js</div>
+            <div class="about__skills-item-name">Node.js</div>
           </div>
         </div>
         </div>
       </div>
 
-      <div class="about__also">
-        <div class="about__also-title code">Also worked with</div>
-        <div class="about__also-tags" aria-label="Additional technologies">
-          <span class="tag">TypeScript</span>
-          <span class="tag">Next.js</span>
-          <span class="tag">RxJS</span>
-          <span class="tag">NgRx</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">SQLite</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Kubernetes</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Azure</span>
-          <span class="tag">CI/CD</span>
-          <span class="tag">Jest</span>
-          <span class="tag">Cypress</span>
-          <span class="tag">WCAG</span>
+      <div class="about__extras">
+        <div class="about__extras-title code">Also worked with</div>
+        <div class="about__extras-tags" aria-label="Additional technologies">
+          <span class="about__extras-tag">TypeScript</span>
+          <span class="about__extras-tag">Next.js</span>
+          <span class="about__extras-tag">RxJS</span>
+          <span class="about__extras-tag">NgRx</span>
+          <span class="about__extras-tag">Node.js</span>
+          <span class="about__extras-tag">Express</span>
+          <span class="about__extras-tag">Java</span>
+          <span class="about__extras-tag">Spring Boot</span>
+          <span class="about__extras-tag">Python</span>
+          <span class="about__extras-tag">FastAPI</span>
+          <span class="about__extras-tag">SQLite</span>
+          <span class="about__extras-tag">MongoDB</span>
+          <span class="about__extras-tag">Docker</span>
+          <span class="about__extras-tag">Kubernetes</span>
+          <span class="about__extras-tag">AWS</span>
+          <span class="about__extras-tag">Azure</span>
+          <span class="about__extras-tag">CI/CD</span>
+          <span class="about__extras-tag">Jest</span>
+          <span class="about__extras-tag">Cypress</span>
+          <span class="about__extras-tag">WCAG</span>
         </div>
       </div>
     </div>
 
-    <div class="about__copy" [@fadeState]="state">
-      <div class="headings">
+    <div class="about__content" [@fadeState]="state">
+      <div class="about__header">
         <h2 class="big-heading">About</h2>
       </div>
-      <div class="description right">
+      <div class="about__description">
         <p>
           I’m a front-end heavy Software Engineer focused on clean, accessible UI with modern TypeScript and JavaScript.
           I’ve shipped production apps in Angular and React for global teams, and I also build backend services in Java/Python
@@ -351,7 +351,7 @@
           Outside of work, I enjoy game development as a hobby and spend my time reading, staying active, and relaxing with friends and family.
         </p>
       </div>
-      <div class="code" style="text-align: right; margin-top: 14px;" [@fadeState]="third">
+      <div class="about__note code" [@fadeState]="third">
         Always happy to chat about front-end architecture, performance, and design systems.
       </div>
     </div>

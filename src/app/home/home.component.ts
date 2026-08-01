@@ -54,8 +54,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ngAfterViewInit() {
-    const element = document.querySelector<HTMLElement>('.text-animation');
+  ngAfterViewInit(): void {
+    const element = this.host.nativeElement.querySelector<HTMLElement>('.hero__role-animation');
     if (!element) return;
 
     const text = element.textContent || '';
@@ -70,19 +70,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     const lettersHtml = Array.from(text)
       .map((ch) =>
         ch === ' '
-          ? '<span class="letter">&nbsp;</span>'
-          : `<span class="letter">${escapeHtml(ch)}</span>`
+          ? '<span class="hero__role-letter">&nbsp;</span>'
+          : `<span class="hero__role-letter">${escapeHtml(ch)}</span>`
       )
       .join('');
-    element.innerHTML = `<div class="letters">${lettersHtml}</div><span class="cursor"></span>`;
+    element.innerHTML = `<div class="hero__role-letters">${lettersHtml}</div><span class="hero__role-cursor"></span>`;
     element.style.display = 'block';
 
-    const letters = Array.from(element.querySelectorAll('.letter'));
+    const letters = Array.from(element.querySelectorAll<HTMLElement>('.hero__role-letter'));
+    const cursor = element.querySelector<HTMLElement>('.hero__role-cursor');
+    if (!cursor) return;
+
     const TYPE_AFTER_MS = 1000;
     const JUMP_AFTER_MS = 100;
 
     this.blinkAnimation = anime({
-      targets: '.text-animation .cursor',
+      targets: cursor,
       loop: true,
       duration: 750,
       opacity: [{ value: [1, 1] }, { value: [0, 0] }],
@@ -92,10 +95,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       .timeline({ loop: false })
         .add(
           {
-            targets: '.text-animation .cursor',
+            targets: cursor,
             position: 'absolute',
 
-            translateX: letters.map((letter: any, i) => ({
+            translateX: letters.map((letter, i) => ({
               value: letter.offsetLeft + letter.offsetWidth,
               duration: 1,
               delay: i === 0 ? 0 : JUMP_AFTER_MS,
@@ -105,7 +108,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         )
         .add(
           {
-            targets: '.text-animation .letter',
+            targets: letters,
             opacity: [0, 1],
             duration: 1,
             delay: anime.stagger(JUMP_AFTER_MS),
@@ -121,8 +124,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.timelineAnimation.finished.then(() => {
       this.removeCursorTimeoutId = window.setTimeout(() => {
-        const cursor = document.querySelector<HTMLElement>('.cursor');
-        cursor?.parentNode?.removeChild(cursor);
+        element.querySelector<HTMLElement>('.hero__role-cursor')?.remove();
       }, 4000);
     });
   }
