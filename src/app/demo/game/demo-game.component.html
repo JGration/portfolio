@@ -1,6 +1,6 @@
 <div class="demo-game" [@fadeState]="state">
   <p class="demo-game__description">
-    A tiny endless runner built with HTML canvas and a real-time game loop—a nod to the game-dev side projects
+    A tiny endless runner built with HTML canvas and a real-time game loop, a nod to the game-dev side projects
     mentioned in About.
   </p>
 
@@ -38,7 +38,7 @@
     </div>
 
     <div class="demo-game__note code" aria-live="polite">
-      {{ gameState === 'playing' ? 'Playing' : gameState === 'gameover' ? 'Game over — score ' + score : 'Ready' }}
+      {{ gameState === 'playing' ? 'Playing' : gameState === 'gameover' ? 'Game over, score ' + score : 'Ready' }}
     </div>
   </div>
 </div>
